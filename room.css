@@ -1,0 +1,322 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+   
+    transition: all 0.3s ease-in-out;
+    background-color: #f3f3f3;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 60px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    
+}
+.hotel-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+   margin-top: 30px;
+   
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 50px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.booking-progress {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.step {
+    padding: 10px;
+    margin: 0 5px;
+    border-bottom: 3px solid lightgray;
+    color: gray;
+}
+
+.step.active {
+    border-bottom: 3px solid black;
+    color: black;
+    
+}
+
+.booking-summary {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Reduced gap for smaller screens */
+    background: white;
+    padding: 35px;
+    border-radius: 20px; /* Slightly reduced for better mobile look */
+    width: 90%; /* Default to 90% for responsiveness */
+    max-width: 700px; /* Prevent it from becoming too large */
+    margin: 30px auto; /* Center it */
+    box-shadow: 0px 4px 6px rgb(25, 185, 239);
+    color: #000;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    text-align: center;
+}
+
+/* Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+    .booking-summary {
+        flex-direction: column; /* Stack items vertically */
+        width: 95%; /* Take almost full width */
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .room-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .options-section {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .option {
+        width: 100%;
+    }
+}
+
+
+/* Adjust for very small screens */
+@media screen and (max-width: 480px) {
+    .booking-summary {
+        width: 100%; /* Use full width */
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+.summary-item span {
+    font-weight: bold;
+    display: block;
+    color: #555;
+}
+
+button {
+    padding: 9px 20px;
+    justify-content: center;
+    border: 1px solid black ;
+    cursor: pointer;
+    border-radius: 120px;
+    margin-left: 100px;
+    background-color: black;
+    color: white;
+}
+
+.room-container {
+    background: #fff;
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: -35px;
+    margin-bottom: 30px;
+}
+
+.room-info {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 990px;
+}
+
+.room-info img {
+    width: 35%;
+    height: 35%;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    
+}
+
+h3{
+    margin-top: 15px;
+}
+.room-characteristics {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 25px;
+    margin-top: 8px;
+}
+
+
+.price-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+.price-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 700px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.price-option:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.price-option input {
+    margin-right: 12px;
+    transform: scale(1.2);
+    position: absolute;
+    left: 15px; /* Align radio button to the left */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.price-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* Align text to the left */
+    margin-left: 35px; /* Add space from radio button */
+}
+
+.price-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-top: 3px;
+}
+
+strong {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: auto; /* Push price to the right */
+}
+
+.options-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+}
+
+.option {
+    background: #fff;
+    padding: 30px 30px 80px 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 2px 6px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+   
+  
+}
+
+
+.option img {
+    width: 100%;
+    height: 80%;
+    border-radius: 5px;
+    object-fit: cover;
+   
+}
+
+.option h4 {
+    margin: 10px 0 5px;
+}
+
+
+.option p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.option span {
+
+    font-weight: bold;
+    display: block;
+    margin: 5px 1px0;
+   
+}
+
+.button-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+
+.back-btn, .book-btn {
+    padding: 0px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.back-btn {
+    background: #ccc;
+    color: #000;
+    margin-top: 30px;
+    margin-left: 180px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+   
+}
+
+
+.book-btn {
+    margin-top: 30px;
+    background: black;
+    color: white;
+    margin-right: 180px;
+    font-size: 13px;
+    
+}
+

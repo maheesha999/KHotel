@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+body {
+   
+   
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    
+   
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 60px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    
+}
+.hotel-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+   margin-top: 30px;
+   
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-right: 50px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.booking-progress {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.step {
+    padding: 10px;
+    margin: 0 5px;
+    border-bottom: 3px solid lightgray;
+    color: gray;
+}
+
+.step.active {
+    border-bottom: 3px solid black;
+    color: black;
+    
+}
+
+.booking-summary {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Reduced gap for smaller screens */
+    background: white;
+    padding: 35px;
+    border-radius: 20px; /* Slightly reduced for better mobile look */
+    width: 90%; /* Default to 90% for responsiveness */
+    max-width: 650px; /* Prevent it from becoming too large */
+    margin: 30px auto; /* Center it */
+    box-shadow: 0px 4px 6px rgb(25, 185, 239);
+    color: #000;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .booking-summary {
+        flex-direction: column; /* Stack items vertically */
+        width: 95%; /* Take almost full width */
+        padding: 15px;
+        border-radius: 15px;
+    }
+}
+
+/* Adjust for very small screens */
+@media screen and (max-width: 480px) {
+    .booking-summary {
+        width: 100%; /* Use full width */
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .payment-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .row div {
+        width: 100%;
+    }
+}
+
+.summary-item span {
+    font-weight: bold;
+    display: block;
+    color: #555;
+}
+
+
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    max-width: 90%;
+    margin-left: 540px;
+    margin-bottom: 20px;
+
+}
+
+h1, h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.summary-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.summary-item, .summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+.summary-total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row div {
+    width: 48%;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

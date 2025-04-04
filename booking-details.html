@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+    <link rel="stylesheet" href="booking-details.css">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="booking-container">
+        <button class="close-btn" onclick="window.history.back();">X</button>
+        <div class="room-details">
+            <img id="roomImage" src="" alt="Room Image">
+            <h2 id="roomName"></h2>
+            <p id="roomDescription"></p>
+            <h3 id="roomPrice"></h3>
+            <button class="confirm-btn" id="confirmBookingBtn">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("roomName").textContent = localStorage.getItem("roomName");
+            document.getElementById("roomPrice").textContent = localStorage.getItem("roomPrice");
+            document.getElementById("roomImage").src = localStorage.getItem("roomImage");
+            document.getElementById("roomDescription").textContent = localStorage.getItem("roomDescription");
+
+            // Apply background effect
+            document.body.style.backgroundImage = `url(${localStorage.getItem("roomImage")})`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+
+            // Navigate to room.html when Confirm Booking is clicked
+            document.getElementById("confirmBookingBtn").addEventListener("click", function() {
+                window.location.href = "room.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

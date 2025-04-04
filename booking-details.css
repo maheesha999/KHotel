@@ -1,0 +1,78 @@
+/* Apply styles to the whole page */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.6); /* Darken background slightly */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+}
+
+/* Background overlay */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    backdrop-filter: blur(10px); /* Stronger blur effect */
+    z-index: -1;
+}
+
+/* Booking details modal */
+.booking-container {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Room image */
+.room-details img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Confirm button */
+.confirm-btn {
+    background: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

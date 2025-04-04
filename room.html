@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="room.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Hotel Logo" class="logo">
+            <span class="hotel-name">K Hotel</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li> <!-- assuming your homepage is index.html -->
+            <li><a href="booking.html">Rooms</a></li> <!-- Navigate to booking.html -->
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#footer" id="contact-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="booking-progress">
+        <span class="step active">Dates</span>
+        <span class="step active">Rooms</span>
+        <span class="step active">Options</span>
+        <span class="step">Book</span>
+    </div>
+
+    <div class="booking-summary">
+        <p>Check-in: </br><span id="display-checkin"></span></p>
+        <p>Nights: </br><span id="display-nights"></span></p>
+        <p>Rooms: </br><span id="display-rooms"></span></p>
+        <p>Guests: </br><span id="display-guests"></span></p>
+        <button onclick="window.location.href='index.html'">Change Dates</button>
+    </div>
+
+    <div class="room-container">
+        <h1 id="roomName">Single Room</h1>
+        
+        <div class="room-info">
+            <img id="roomImage" src="" alt="Room Image">
+            <p id="roomDescription"></p>
+        </div>
+
+        <h3>Characteristics</h3>
+        <div class="room-characteristics">
+            <span>📶 💻 📺 🍽️ 🚿 🛏️ ♿</span>
+        </div>
+
+        <h3>Price</h3>
+        <div class="price-section">
+            <label class="price-option">
+                <input type="radio" name="price" value="Non-refundable" checked>
+                <div class="price-content">
+                    <span class="price-title">Non-refundable Rate</span>
+                    <p class="price-subtitle">Non Refundable Rate</p>
+                </div>
+                <strong id="roomPrice"></strong>
+            </label>
+            <label class="price-option">
+                <input type="radio" name="price" value="Standard">
+                <div class="price-content">
+                    <span class="price-title">Standard Rate</span>
+                    <p class="price-subtitle">Breakfast Included | Free Cancellation</p>
+                </div>
+                <strong id="roomPriceStandard">$166.50</strong>
+            </label>
+        </div>
+
+        <h3>Options</h3>
+        <div class="options-section">
+            <div class="option">
+                <img src="./images/breakfast.jpg" alt="Breakfast Buffet">
+                <h4>Breakfast Buffet</h4>
+                <p>Breakfast: Enjoy a delightful breakfast buffet with a variety of fresh, delicious options.</p>
+                <span class="option-price">$100</span>
+                <input type="checkbox" data-price="100">
+            </div>
+            <div class="option">
+                <img src="./images/airport.jpg" alt="Luxury Airport Transfer">
+                <h4>Luxury Airport Transfer</h4>
+                <p>Airport: Experience seamless travel with our luxury airport transfer.</p>
+                <span class="option-price">$300</span>
+                <input type="checkbox" data-price="300">
+            </div>
+            <div class="option">
+                <img src="./images/boat.jpg" alt="Private Boat Tour">
+                <h4>Private Boat Tour</h4>
+                <p>Boat: Explore scenic waters in luxury with personalized service.</p>
+                <span class="option-price">$200</span>
+                <input type="checkbox" data-price="200">
+            </div>
+        </div>  
+
+        <h3>Total Price</h3>
+        <div class="total-price">
+            <strong>Total: <span id="totalPrice">$0</span></strong>
+        </div>
+    </div>
+
+    <div class="button-section">
+        <button class="back-btn" onclick="window.history.back();">Back</button>
+        <button class="book-btn" id="booknowbtn">BOOK NOW</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve stored data
+            document.getElementById("roomName").textContent = localStorage.getItem("roomName");
+            document.getElementById("roomImage").src = localStorage.getItem("roomImage");
+            document.getElementById("roomDescription").textContent = localStorage.getItem("roomDescription");
+    
+            let roomPrice = parseFloat(localStorage.getItem("roomPrice").replace("$", "")) || 0;
+            document.getElementById("roomPrice").textContent = `$${roomPrice.toFixed(2)}`;
+    
+            // Reset extra fees when loading a new booking
+            localStorage.setItem("extraFees", "0");
+            localStorage.setItem("selectedExtras", JSON.stringify([]));
+    
+            let extraFees = 0;
+            let selectedExtras = [];
+    
+            // Booking summary
+            let checkinDate = localStorage.getItem("checkin");
+            let nights = localStorage.getItem("nights");
+            let rooms = localStorage.getItem("rooms");
+            let guests = localStorage.getItem("guests");
+    
+            if (checkinDate && nights && rooms && guests) {
+                document.getElementById("display-checkin").textContent = checkinDate;
+                document.getElementById("display-nights").textContent = nights;
+                document.getElementById("display-rooms").textContent = rooms;
+                document.getElementById("display-guests").textContent = guests;
+            } else {
+                window.location.href = "index.html"; // Redirect if no data
+            }
+    
+            // Function to update total price
+            function updateTotalPrice() {
+                let total = roomPrice + extraFees;
+                document.getElementById("totalPrice").textContent = `$${total.toFixed(2)}`;
+            }
+    
+            // Handle extra options selection
+            document.querySelectorAll(".options-section input[type='checkbox']").forEach(checkbox => {
+                checkbox.addEventListener("change", function () {
+                    let fee = parseFloat(this.dataset.price);
+                    let optionText = this.previousElementSibling.previousElementSibling.textContent;
+    
+                    if (this.checked) {
+                        if (!selectedExtras.includes(optionText)) { // Only add fee once per booking
+                            extraFees += fee;
+                            selectedExtras.push(optionText);
+                        }
+                    } else {
+                        extraFees -= fee;
+                        selectedExtras = selectedExtras.filter(item => item !== optionText);
+                    }
+    
+                    localStorage.setItem("extraFees", extraFees);
+                    localStorage.setItem("selectedExtras", JSON.stringify(selectedExtras));
+    
+                    updateTotalPrice();
+                });
+            });
+    
+            updateTotalPrice(); // Initial total price update
+    
+            // Handle booking button click
+            document.getElementById("booknowbtn").addEventListener("click", function () {
+                localStorage.setItem("totalPrice", document.getElementById("totalPrice").textContent);
+                window.location.href = "payform.html";
+            });
+        });
+    
+        // Load footer
+        fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("beforeend", data);
+        });
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Hotel Logo" class="logo">
+            <span class="hotel-name">K Hotel</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li> <!-- assuming your homepage is index.html -->
+            <li><a href="booking.html">Rooms</a></li> <!-- Navigate to booking.html -->
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#footer" id="contact-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="booking-progress">
+        <span class="step active">Dates</span>
+        <span class="step active">Rooms</span>
+        <span class="step">Options</span>
+        <span class="step">Book</span>
+    </div>
+
+    <div class="booking-summary">
+        <p>Check-in: </br><span id="display-checkin"></span></p>
+        <p>Nights: </br><span id="display-nights"></span></p>
+        <p>Rooms: </br><span id="display-rooms"></span></p>
+        <p>Guests: </br><span id="display-guests"></span></p>
+  
+    
+        <button onclick="window.location.href='index.html'">Change Dates</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let checkinDate = localStorage.getItem("checkin");
+            let nights = localStorage.getItem("nights");
+            let rooms = localStorage.getItem("rooms");
+            let guests = localStorage.getItem("guests");
+
+            if (checkinDate && nights && rooms && guests) {
+                document.getElementById("display-checkin").textContent = checkinDate;
+                document.getElementById("display-nights").textContent = `${nights}`;
+                document.getElementById("display-rooms").textContent = `${rooms} `;
+                document.getElementById("display-guests").textContent = `${guests} `;
+            } else {
+                window.location.href = "index.html"; // Redirect if no data is found
+            }
+        });
+    </script>
+
+<div class="room-selection">
+    <div class="room-card">
+        <img src="./images/bed6.jpg" alt="Single Room" class="room-image">
+        <div class="room-info">
+            <h3>Single Room</h3>
+            <p>Classic comfort meets modern luxury with sunlit courtyard views. Unwind on your private balcony with a Nespresso after a day of exploration.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$336</p>
+                <p class="old-price">$373.33</p>
+                <p class="availability">Last 1 available!</p>
+                <button class="select-btn" onclick="selectRoom('Single Room', '$336', './images/bed6.jpg', 'Classic comfort meets modern luxury with sunlit courtyard views. Unwind on your private balcony with a Nespresso after a day of exploration.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-card">
+        <img src="./images/bed1.jpg" alt="Superior Room Deluxe" class="room-image">
+        <div class="room-info">
+            <h3>Superior Room Deluxe</h3>
+            <p>Experience modern luxury in our Superior Deluxe Room, featuring elegant décor and serene views. Relax in style with premium comforts and a private retreat.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$432</p>
+                <p class="old-price">$480</p>
+                <button class="select-btn" onclick="selectRoom('Superior Room Deluxe', '$432', './images/bed1.jpg', 'Experience modern luxury in our Superior Deluxe Room, featuring elegant décor and serene views.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-card">
+        <img src="./images/bed2.jpg" alt="Double Room Standard" class="room-image">
+        <div class="room-info">
+            <h3>Double Room Standard</h3>
+            <p>Enjoy cozy comfort in our Double Standard Room, featuring modern amenities and a relaxing ambiance. Perfect for a restful stay after a day of exploration.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$504</p>
+                <p class="old-price">$560</p>
+                <button class="select-btn" onclick="selectRoom('Double Room Standard', '$504', './images/bed2.jpg', 'Enjoy cozy comfort in our Double Standard Room, featuring modern amenities and a relaxing ambiance.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-card">
+        <img src="./images/bed3.png" alt="Superior Room Deluxe" class="room-image">
+        <div class="room-info">
+            <h3>Presidential Suites</h3>
+            <p>Indulge in unmatched luxury in our Presidential Suite, featuring elegant décor, spacious living areas, and breathtaking views. Experience the pinnacle of comfort and sophistication.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$728</p>
+                <p class="old-price">$806.90</p>
+                <button class="select-btn" onclick="selectRoom('Presidential Suites', '$728', './images/bed3.png', 'Indulge in unmatched luxury in our Presidential Suite, featuring elegant décor, spacious living areas, and breathtaking views.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-card">
+        <img src="./images/bed4.jpg" alt="Superior Room Deluxe" class="room-image">
+        <div class="room-info">
+            <h3>Private Island Room</h3>
+            <p>Escape to paradise in our Private Island Room, offering serene views, exclusive luxury, and ultimate tranquility. Experience a secluded retreat like no other.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$1,624</p>
+                <p class="old-price">$1804.44</p>
+                <button class="select-btn" onclick="selectRoom('Private Island Room', '$1,624', './images/bed4.jpg', 'Escape to paradise in our Private Island Room, offering serene views, exclusive luxury, and ultimate tranquility.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="room-card">
+        <img src="./images/bed5.jpg" alt="Superior Room Deluxe" class="room-image">
+        <div class="room-info">
+            <h3>Penthouse Deluxe</h3>
+            <p>Featuring a private terrace, premium amenities, and top-tier comfort, this suite is perfect for those seeking exclusivity and sophistication.</p>
+            <div class="room-icons">
+                <span>📶</span> <span>❄️</span> <span>💼</span> <span>🍵</span> <span>🐾</span> <span>♿</span>
+            </div>
+            <p class="special-offer">🌿 Summer Special Ending Today!</p>
+        </div>
+        <div class="room-pricing">
+            <div class="pricing-info">
+                <span class="people-icon">👥</span>
+                <p class="price">$2,244</p>
+                <p class="old-price">$2,493.33</p>
+                <button class="select-btn" onclick="selectRoom('Penthouse Deluxe', '$2,244', './images/bed5.jpg', 'Featuring a private terrace, premium amenities, and top-tier comfort, this suite is perfect for those seeking exclusivity and sophistication.')">
+                    SELECT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="window.location.href='index.html'">Change Dates</button>
+    </div>
+    <script>
+        fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("beforeend", data);
+        });
+    </script>
+    <script>
+        function selectRoom(name, price, image, description) {
+            localStorage.setItem("roomName", name);
+            localStorage.setItem("roomPrice", price);
+            localStorage.setItem("roomImage", image);
+            localStorage.setItem("roomDescription", description);
+            window.location.href = "booking-details.html";
+        }
+    </script>
+        
+</body>
+</html>

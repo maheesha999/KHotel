@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="navbar" id="navbar">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Hotel Logo" class="logo">
+                <span class="hotel-name">K Hotel</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li> <!-- assuming your homepage is index.html -->
+                <li><a href="booking.html">Rooms</a></li> <!-- Navigate to booking.html -->
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#footer" id="contact-link">Contact</a></li>
+                <li><a href="#" class="reservation">Reservation</a></li>
+            </ul>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>Experience Luxury & Comfort</h2>
+                <p>Enjoy world-class hospitality in the heart of the city. Find the perfect room and relax with breathtaking views.</p>
+                <button class="btn" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">
+                    Book Now
+                  </button>
+                  
+            </div>
+
+            <div class="hero-images">
+                <img src="images/concierge.jpg" alt="Hotel Room" class="hero-main-img">
+                <img src="images/swim.jpg" alt="Hotel Pool" class="hero-overlay-img">
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <section class="booking-section" >
+            <div class="booking-form" id="booking">
+                <label>Check-In Date 
+                    <input type="date" id="checkin">
+                </label>
+                <label>Check-Out Date 
+                    <input type="date" id="checkout">
+                    
+                </label>
+                <span id="nights">Nights: 0</span>
+                <label>Guests 
+                    <input type="text" id="guest-input" readonly placeholder="Select Guests">
+                    <div class="guest-dropdown">
+                        <label>Rooms 
+                            <select id="rooms">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                
+                            </select>
+                        </label>
+                       
+                        <label>Guests 
+                            <select class="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                               
+                            </select>
+                        </label>
+                    </div>
+                </label>
+                <button class="book-now"onclick="window.location.href='booking.html'">Book Now</button>
+            </div>
+        </section>
+    
+        <script src="script.js"></script>
+    </section>
+
+    <!-- Mykonos Experience Section -->
+    <section class="mykonos-section">
+        <div class="mykonos-container">
+            <!-- Left Image -->
+            <div class="mykonos-image">
+                <img src="images/myconos3.jpg" alt="Mykonos City">
+            </div>
+    
+            <!-- Middle Content -->
+            <div class="mykonos-content">
+                <h2>Experience the Life of Mykonos City</h2>
+                <p>“Experience stunning seaside views and luxurious stays. Book your perfect hotel effortlessly for an unforgettable getaway!”</p>
+            </div>
+    
+            <!-- Right Image (Lower Position) -->
+            
+        </div>
+
+        <div class="mykonos-container">
+        <div class="mykonos-content">
+            <p>“Discover the charm of Mykonos City with breathtaking views and world-class stays. Immerse yourself in the beauty of Mykonos City with stunning beaches and luxury hotels.”</p>
+            <button class="discover-btn">Discover More</button>
+        </div>
+        <div class="mykonos-image">
+            <img src="images/myconos.jpg" alt="Mykonos at Night">
+        </div>
+    </div>
+        <!-- Bottom Section -->
+       
+    </section>
+     <!-- Amenities & Facilities Section -->
+     <section class="amenities" id="amenities">
+        <h2>Amenities & Facilities</h2>
+        <p>“Enjoy top-notch amenities and world-class facilities for a comfortable stay. Book your hotel now and experience luxury like never before!”</p>
+        <button class="view-all">View All</button>
+
+        <div class="amenities-container">
+            <div class="amenity">
+                <img src="images/pool.jpg" alt="Swimming Pool">
+                <h3>Swimming Pool</h3>
+                <p>“Dive into relaxation in our stunning pools. Book now for the ultimate poolside escape!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/spa.webp" alt="Iconic Spa">
+                <h3>Iconic Spa</h3>
+                <p>“Indulge in luxury and tranquility at our iconic spa. Book now for ultimate rejuvenation!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/bed.jpg" alt="Luxurious Rooms">
+                <h3>Luxurious Rooms</h3>
+                <p>“Unwind in our luxurious rooms, where comfort meets elegance. Book now for a stylish retreat!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/tub.jpg" alt="Deep Soaking Bathtub">
+                <h3>Deep Soaking Bathtub</h3>
+                <p>“Relax in our deep soaking bathtubs for ultimate comfort. Book now for a luxurious experience!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/wifi.jpg" alt="Guest Computer & WiFi">
+                <h3>Guest Computer & WiFi</h3>
+                <p>“Stay connected with high-speed WiFi and guest computers. Book now for seamless connectivity!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/concierge1.png" alt="24 Hour Concierge">
+                <h3>24 Hour Concierge</h3>
+                <p>“Enjoy seamless service with our 24 hour concierge. Book now for a hassle-free, luxurious stay!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/gym.jpg" alt="24 Hour Concierge">
+                <h3>Fitness Center</h3>
+                <p>"“Enjoy our fitness center, featuring cardio machines, weights, and top-tier gym facilities!”</p>
+                <a href="#">READ MORE</a>
+            </div>
+            <div class="amenity">
+                <img src="images/bar.jpg" alt="24 Hour Concierge">
+                <h3>Gourmet Restaurant & Bar</h3>
+                <p>"Savor global flavors and signature cocktails at our gourmet restaurant and bar!"</p>
+                <a href="#">READ MORE</a>
+            </div>
+        </div>
+    </section>
+     
+    <script>
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML("beforeend", data);
+    
+                // Reattach event listener AFTER the footer is loaded
+                document.getElementById("contact-link").addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const footer = document.getElementById("footer");
+                    if (footer) {
+                        footer.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+    </script>
+    
+    
+
+</body>
+</html>
