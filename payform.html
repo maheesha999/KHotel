@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <link rel="stylesheet" href="payform.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Hotel Logo" class="logo">
+            <span class="hotel-name">K Hotel</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li> <!-- assuming your homepage is index.html -->
+            <li><a href="booking.html">Rooms</a></li> <!-- Navigate to booking.html -->
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#footer" id="contact-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="booking-progress">
+        <span class="step active">Dates</span>
+        <span class="step active">Rooms</span>
+        <span class="step active">Options</span>
+        <span class="step active">Book</span>
+    </div>
+
+    <div class="booking-summary">
+        <p>Check-in: </br><span id="display-checkin"></span></p>
+        <p>Nights: </br><span id="display-nights"></span></p>
+        <p>Rooms: </br><span id="display-rooms"></span></p>
+        <p>Guests: </br><span id="display-guests"></span></p>
+    
+    </div>
+    
+    <div class="container">
+        <h1>Payment Details</h1>
+        
+        <div class="summary-box">
+            
+            <div class="summary-item">
+                <span>Room Type:</span>
+                <span id="roomName"></span>
+            </div>
+            
+            <div class="summary-item">
+                <span>Room price:</span>
+                <span id="roomPrice"></span>
+            </div>
+
+            <div class="summary-item">
+                <span>Selected Extras:</span>
+                <span id="summary-extras"></span>
+            </div>
+
+            <div class="summary-item">
+                <span>Extra Fees:</span>
+                <span id="summary-extraFees"></span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total Price:</span>
+                <span id="summary-total"></span>
+            </div>
+        </div>
+
+        <h2>Payment Method</h2>
+        <form id="payment-form">
+            <label for="cardholder-name">Cardholder Name:</label>
+            <input type="text" id="cardholder-name" required>
+
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" required maxlength="16" pattern="\d{16}" placeholder="Enter 16-digit card number">
+
+            <div class="row">
+                <div>
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="text" id="expiry-date" required placeholder="MM/YY">
+                </div>
+                <div>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required maxlength="3" pattern="\d{3}" placeholder="3-digit CVV">
+                </div>
+            </div>
+
+            <button type="submit">Confirm Payment</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let checkinDate = localStorage.getItem("checkin");
+            let nights = localStorage.getItem("nights");
+            let rooms = localStorage.getItem("rooms");
+            let guests = localStorage.getItem("guests");
+
+            if (checkinDate && nights && rooms && guests) {
+                document.getElementById("display-checkin").textContent = checkinDate;
+                document.getElementById("display-nights").textContent = `${nights}`;
+                document.getElementById("display-rooms").textContent = `${rooms} `;
+                document.getElementById("display-guests").textContent = `${guests} `;
+            } else {
+                window.location.href = "index.html"; // Redirect if no data is found
+            }
+        });
+    </script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let roomPrice = parseFloat(localStorage.getItem("roomPrice")?.replace("$", "") || "0");
+        let extraFees = parseFloat(localStorage.getItem("extraFees") || "0");
+        let selectedExtras = JSON.parse(localStorage.getItem("selectedExtras")) || [];
+
+        let extrasNames = selectedExtras.map(extra => extra.split(" ")[0]); // Extract only the first word
+
+        document.getElementById("roomName").textContent = localStorage.getItem("roomName") || "Not selected";
+        document.getElementById("roomPrice").textContent = `$${roomPrice.toFixed(2)}`;
+        document.getElementById("summary-extras").textContent = extrasNames.length > 0 ? extrasNames.join(", ") : "None";
+        document.getElementById("summary-extraFees").textContent = `$${extraFees.toFixed(2)}`;
+        document.getElementById("summary-total").textContent = `$${(roomPrice + extraFees).toFixed(2)}`;
+    });
+</script>
+
+
+<script>
+    fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+        document.body.insertAdjacentHTML("beforeend", data);
+    });
+</script>
+    
+</body>
+</html>
