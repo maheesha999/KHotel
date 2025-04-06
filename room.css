@@ -31,9 +31,18 @@ body {
 }
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     display: flex;
     justify-content: space-between;
-   margin-top: 30px;
+    padding: 15px 50px;
+    align-items: center;
+    background: transparent;
+    transition: all 0.4s ease;
+    z-index: 1000;
    
 }
 
@@ -49,6 +58,20 @@ body {
     color: black;
     font-weight: bold;
 }
+
+.navbar.scrolled{
+    background:linear-gradient(to top, #b3b3ff,#e0e0e0,transparent);
+}
+
+.navbar.scrolled .nav-links li a {
+    color: black;
+}
+
+
+.navbar.scrolled .hotel-name {
+    color: black;
+}
+
 
 .booking-progress {
     display: flex;

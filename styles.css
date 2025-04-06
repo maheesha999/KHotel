@@ -50,7 +50,9 @@ body {
     transition: all 0.4s ease;
     z-index: 1000;
 }
-
+.navbar.scrolled{
+    background:linear-gradient(to top, #b3b3ff,#e0e0e0,transparent);
+}
 
 .navbar.scrolled .nav-links li a {
     color: black;
