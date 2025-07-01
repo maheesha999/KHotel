@@ -59,12 +59,16 @@ body {
     font-weight: bold;
 }
 
-.navbar.scrolled{
-    background:linear-gradient(to top, #b3b3ff,#e0e0e0,transparent);
+.nav-links li a:visited,
+.nav-links li a:hover,
+.nav-links li a:focus,
+.nav-links li a:active {
+    color: black;
 }
 
-.navbar.scrolled .nav-links li a {
-    color: black;
+.navbar.scrolled {
+    background: linear-gradient(to bottom, #ffffff, #ccccff); /* more solid */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* optional shadow */
 }
 
 

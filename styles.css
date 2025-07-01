@@ -424,3 +424,122 @@ html {
     scroll-behavior: smooth;
   }
   
+  @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo-container {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .reservation {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    margin-top: 120px;
+  }
+
+  .hero-content,
+  .hero-images {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-content h2 {
+    font-size: 30px;
+  }
+
+  .hero-main-img {
+    max-width: 300px;
+  }
+
+  .hero-overlay-img {
+    bottom: -20px;
+    right: 0;
+    width: 120px;
+  }
+}
+@media (max-width: 768px) {
+  .booking-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    width: 90%;
+  }
+
+  .guest-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 768px) {
+  .mykonos-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mykonos-content,
+  .mykonos-image {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mykonos-content h2 {
+    font-size: 24px;
+  }
+
+  .mykonos-content p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .amenities h2 {
+    font-size: 22px;
+  }
+
+  .amenities p {
+    font-size: 15px;
+  }
+
+  .amenity h3 {
+    font-size: 16px;
+  }
+
+  .amenity p {
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .btn,
+  .discover-btn,
+  .view-all,
+  .book-now {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
